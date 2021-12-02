@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <AdventOfCode msg="Advent Of Code 2021"/>
+    <AdventOfCode msg="Advent Of Code 2021 Solver Online"/>
   </div>
 </template>
 

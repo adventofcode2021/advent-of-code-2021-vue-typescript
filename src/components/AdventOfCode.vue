@@ -2,14 +2,14 @@
   <div class="adventofcode">
     <h1>{{ msg }}</h1>
     <label for="day">Select day</label><br/>
-    <select id="day" v-model="day">
+    <select id="day" v-model="day" @change="reset">
       <option value="1">1</option>
       <option value="2">2</option>
     </select><br/>
     <label for="input">Input</label><br/>
     <textarea id="input" rows="10" cols="40" v-model="input" placeholder="Add your input here"></textarea>    
     <p>
-      <button v-on:click="solve()" id ="solve">Solve</button>
+      <button @click="solve()" id ="solve">Solve</button>
     </p>
     <h2>Solution for part 1</h2>
     <p id="solution1">{{ this.solution1 }}</p>
@@ -31,6 +31,12 @@ export default class AdventOfCode extends Vue {
   private solution1 = 'Not solved';
   private solution2 = 'Not solved';
   private day = 1;
+
+  private reset() {
+    this.input = '';
+    this.solution1 = 'Not solved';
+    this.solution2 = 'Not solved';
+  }
 
   private solve() {
     if(!this.input) {
