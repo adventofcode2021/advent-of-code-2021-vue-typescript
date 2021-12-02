@@ -1,7 +1,11 @@
 <template>
   <div class="adventofcode">
     <h1>{{ msg }}</h1>
-    <h2>Day 1</h2>
+    <label for="day">Select day</label><br/>
+    <select id="day" v-model="day">
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select><br/>
     <label for="input">Input</label><br/>
     <textarea id="input" rows="10" cols="40" v-model="input" placeholder="Add your input here"></textarea>    
     <p>
@@ -17,7 +21,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { solveDay1Part1, solveDay1Part2 } from '@/lib/day1';
+import { solve } from '@/lib/adventofcode';
 
 @Component
 export default class AdventOfCode extends Vue {
@@ -26,6 +30,7 @@ export default class AdventOfCode extends Vue {
   private input = '';
   private solution1 = 'Not solved';
   private solution2 = 'Not solved';
+  private day = 1;
 
   private solve() {
     if(!this.input) {
@@ -33,8 +38,8 @@ export default class AdventOfCode extends Vue {
       this.solution2 = 'Input not given!';
       return;
     }
-    this.solution1 = solveDay1Part1(this.input);
-    this.solution2 = solveDay1Part2(this.input);
+    this.solution1 = solve(this.input, +this.day, 1);
+    this.solution2 = solve(this.input, +this.day, 2);
   }
 }
 </script>
