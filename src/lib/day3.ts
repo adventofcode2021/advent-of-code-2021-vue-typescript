@@ -36,7 +36,6 @@ function findRating(input:string, rating: Rating) : number {
     let tempList: string[] = input.split('\n');
     let index = 0;    
     do {
-        console.log(tempList);
         const zeros: string[] = [];
         const ones: string[] = [];
         tempList.forEach(element => {
