@@ -3,8 +3,7 @@
     <h1>{{ msg }}</h1>
     <label for="day">Select day</label><br/>
     <select id="day" v-model="day" @change="reset">
-      <option value="1">1</option>
-      <option value="2">2</option>
+      <option v-for="n in numOfImplementedDays" :value="n" :key="n">{{ n }}</option>
     </select><br/>
     <label for="input">Input</label><br/>
     <textarea id="input" rows="10" cols="40" v-model="input" placeholder="Add your input here"></textarea>    
@@ -15,7 +14,6 @@
     <p id="solution1">{{ this.solution1 }}</p>
     <h2>Solution for part 2</h2>
     <p id="solution2">{{ this.solution2 }}</p>
-
   </div>
 </template>
 
@@ -27,6 +25,8 @@ import { solve } from '@/lib/adventofcode';
 export default class AdventOfCode extends Vue {
   @Prop() private msg!: string;
 
+  // This has to be updated as new days are implemented
+  private numOfImplementedDays = 3;
   private input = '';
   private solution1 = 'Not solved';
   private solution2 = 'Not solved';

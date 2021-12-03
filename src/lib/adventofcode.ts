@@ -1,5 +1,6 @@
 import { solveDay1Part1, solveDay1Part2 } from '@/lib/day1';
 import { solveDay2Part1, solveDay2Part2 } from '@/lib/day2';
+import { solveDay3Part1, solveDay3Part2 } from '@/lib/day3';
 
 // Function for solving Advent of Code 2021
 export function solve(input: string, day: number, part: number): string {
@@ -11,6 +12,10 @@ export function solve(input: string, day: number, part: number): string {
         return solveDay2Part1(input);
     else if (day === 2 && part === 2)
         return solveDay2Part2(input);
+        else if (day === 3 && part === 1)
+        return solveDay3Part1(input);
+    else if (day === 3 && part === 2)
+        return solveDay3Part2(input);
     
     return 'Invalid day or part';
 }
