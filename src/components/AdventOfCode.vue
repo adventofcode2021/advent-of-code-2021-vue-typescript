@@ -26,14 +26,13 @@ export default class AdventOfCode extends Vue {
   @Prop() private msg!: string;
 
   // This has to be updated as new days are implemented
-  private numOfImplementedDays = 3;
+  private numOfImplementedDays = 4;
   private input = '';
   private solution1 = 'Not solved';
   private solution2 = 'Not solved';
   private day = 1;
 
   private reset() {
-    this.input = '';
     this.solution1 = 'Not solved';
     this.solution2 = 'Not solved';
   }
