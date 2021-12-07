@@ -119,6 +119,6 @@ describe('AdventOfCode.vue', () => {
     const solution1 = wrapper.find('#solution1').text();
     const solution2 = wrapper.find('#solution2').text();
     expect(solution1).toMatch('4512');
-    expect(solution2).toMatch('0');
+    expect(solution2).toMatch('1924');
   })  
 })
