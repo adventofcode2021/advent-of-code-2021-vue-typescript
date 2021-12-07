@@ -120,5 +120,39 @@ describe('AdventOfCode.vue', () => {
     const solution2 = wrapper.find('#solution2').text();
     expect(solution1).toMatch('4512');
     expect(solution2).toMatch('1924');
+  })
+
+  it('Solves day 5', async () => {
+    const input = 
+    `0,9 -> 5,9
+8,0 -> 0,8
+9,4 -> 3,4
+2,2 -> 2,1
+7,0 -> 7,4
+6,4 -> 2,0
+0,9 -> 2,9
+3,4 -> 1,4
+0,0 -> 8,8
+5,5 -> 8,2`;
+
+    // Arrange
+    const msg = 'new message'
+    const wrapper = shallowMount(AdventOfCode, {
+      propsData: { msg }
+    })
+
+    // Act
+    const select = wrapper.find('#day');
+    select.setValue('5');
+    const textArea = wrapper.find('#input');
+    textArea.setValue(input);
+    wrapper.find('#solve').trigger('click');
+    await new Promise((r) => setTimeout(r, 2000));
+
+    // Assert
+    const solution1 = wrapper.find('#solution1').text();
+    const solution2 = wrapper.find('#solution2').text();
+    expect(solution1).toMatch('5');
+    expect(solution2).toMatch('0');
   })  
 })
